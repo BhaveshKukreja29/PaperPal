@@ -27,7 +27,7 @@ class Conversation:
 
     def converse(self, prompt):
         stopEvent = threading.Event()
-        spinnerThread = threading.Thread(target=self.spinner, args=(stopEvent,))
+        spinnerThread = threading.Thread(target=self.spinner, args=(stopEvent,), daemon=True)
         spinnerThread.start()
 
         try:

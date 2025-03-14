@@ -23,7 +23,7 @@ class Summarizer:
 
     def summarise(self, text):
         stopEvent = threading.Event()
-        spinnerThread = threading.Thread(target=self.spinner, args=(stopEvent,))
+        spinnerThread = threading.Thread(target=self.spinner, args=(stopEvent,), daemon=True)
         spinnerThread.start()
 
         try:
