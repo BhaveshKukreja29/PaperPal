@@ -24,21 +24,20 @@ class PaperPal:
         choice = input("Do you want to talk about this paper more? (Y/N):").strip()
 
         if choice.lower() == 'y':
-            print("You can type 'quit' to exit the conversation. Enter your queries and I'll answer them :)")
-            print()
+            print("\nYou can type 'quit' to exit the conversation. Enter your queries and I'll answer them :)\n")
 
-            
+            response = Conversation(document.text)
 
             while True:
                 prompt = input("You: ")
 
                 if prompt == "quit": break
 
-                response = Conversation(document.text, prompt)
-                print("PaperPal:", response.response)
+                print("\n\nPaperPal:", response.converse(prompt))
             
 
         print("PaperPal: Bye, Have a good day!")
+        return
         
 
 if __name__ == "__main__":
