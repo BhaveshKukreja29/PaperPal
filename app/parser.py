@@ -1,7 +1,6 @@
 from os import path
-import docx.document
-import pymupdf
 import docx
+import pymupdf
 
 class DocParser:
     def __init__(self, path):

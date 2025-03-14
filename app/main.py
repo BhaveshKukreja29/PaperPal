@@ -4,7 +4,7 @@ from conversation import Conversation
 
 class PaperPal:
     def __init__(self):
-        print("Hey welcome to PaperPal! You can give me your files in PDF, Docx, txt and even images! I'll do my best to help you understand :)")
+        print("Hey welcome to PaperPal! You can give me your files in .pdf, .txt and even .docx formats! I'll do my best to help you understand :)")
 
     def run(self):
         path = input("\nPlease enter the file path of your file: ").strip()
@@ -29,14 +29,14 @@ class PaperPal:
             response = Conversation(document.text)
 
             while True:
-                prompt = input("You: ")
+                prompt = input("\033[94mYou:\033[0m ")
 
                 if prompt == "quit": break
 
-                print("\n\nPaperPal:", response.converse(prompt))
+                print("\n\033[92mPaperPal:\033[0m", response.converse(prompt))
             
 
-        print("PaperPal: Bye, Have a good day!")
+        print("\n\033[92mPaperPal:\033[0m Bye, Have a good day!")
         return
         
 
