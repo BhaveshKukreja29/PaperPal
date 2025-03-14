@@ -1,7 +1,7 @@
 import os
 import json
 
-CONFIG_DIR = os.path.expanduser("~/app")
+CONFIG_DIR = os.path.dirname(__file__)
 CONFIG_FILE = os.path.join(CONFIG_DIR, "config.json")
 
 def getKey():

@@ -1,5 +1,6 @@
 from parser import DocParser
 from summarizer import Summarizer
+from conversation import Conversation
 
 class PaperPal:
     def __init__(self):
@@ -14,10 +15,31 @@ class PaperPal:
         if document.text == "":
             print("I think the file path was invalid or the permissions weren't enough or the file doesn't even exist")
             print("Please double check or try some other formats :)")
+            return
 
         else:
             summary = Summarizer(document.text)
             print(summary.summary)
+
+        choice = input("Do you want to talk about this paper more? (Y/N):").strip()
+
+        if choice.lower() == 'y':
+            print("You can type 'quit' to exit the conversation. Enter your queries and I'll answer them :)")
+            print()
+
+            
+
+            while True:
+                prompt = input("You: ")
+
+                if prompt == "quit": break
+
+                response = Conversation(document.text, prompt)
+                print("PaperPal:", response.response)
+            
+
+        print("PaperPal: Bye, Have a good day!")
+        
 
 if __name__ == "__main__":
     app = PaperPal()
