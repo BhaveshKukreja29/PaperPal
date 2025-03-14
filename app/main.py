@@ -21,7 +21,7 @@ class PaperPal:
 
         else:
             summary = Summarizer(document.text)
-            print("\033[91mSummary:\033[0m ",fill(summary.summary, width=(get_terminal_size().columns - 10)))
+            print("\033[91mSummary:\033[0m",fill(summary.summary, width=(get_terminal_size().columns - 10)))
 
         del summary
 
@@ -42,7 +42,7 @@ class PaperPal:
                 print("\n\033[92mPaperPal:\033[0m", fill(response.converse(prompt), width=(get_terminal_size().columns - 10)))
             
 
-        print("\n\033[92mPaperPal:\033[0m Bye, Have a good day!")
+        print("\n\033[92mPaperPal:\033[0m Bye, have a good day!")
         return
         
 
