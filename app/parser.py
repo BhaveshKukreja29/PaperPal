@@ -12,18 +12,19 @@ class DocParser:
             return ""
 
         if self.path.endswith(".pdf") or self.path.endswith(".txt"):
-            doc = pymupdf.open(self.path)
-            output = ""
-            for page in doc:
-                output += page.get_text()
+            with pymupdf.open(self.path) as doc:
+                output = ""
+                for page in doc:
+                    output += page.get_text()
             
+            #print("\nFile ka maal: ", output, "\n\n")
             return output
         
         if self.path.endswith(".docx"):
-            doc = docx.Document(self.path)
-            fullText = []
+            with docx.Document(self.path) as doc:
+                fullText = []
 
-            for para in doc.paragraphs:
-                fullText.append(para.text)
+                for para in doc.paragraphs:
+                    fullText.append(para.text)
 
             return '\n'.join(fullText)
