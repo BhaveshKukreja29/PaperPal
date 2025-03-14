@@ -1,10 +1,12 @@
 from parser import DocParser
 from summarizer import Summarizer
 from conversation import Conversation
+from textwrap import fill
+from shutil import get_terminal_size
 
 class PaperPal:
     def __init__(self):
-        print("Hey welcome to PaperPal! You can give me your files in .pdf, .txt and even .docx formats! I'll do my best to help you understand :)")
+        print("\nHey welcome to PaperPal! You can give me your files in .pdf, .txt and even .docx formats! I'll do my best to help you understand :)")
 
     def run(self):
         path = input("\nPlease enter the file path of your file: ").strip()
@@ -19,21 +21,25 @@ class PaperPal:
 
         else:
             summary = Summarizer(document.text)
-            print(summary.summary)
+            print("\033[91mSummary:\033[0m ",fill(summary.summary, width=(get_terminal_size().columns - 10)))
 
-        choice = input("Do you want to talk about this paper more? (Y/N):").strip()
+        del summary
+
+        choice = input("\nDo you want to talk about this paper more? (Y/N): ").strip()
 
         if choice.lower() == 'y':
-            print("\nYou can type 'quit' to exit the conversation. Enter your queries and I'll answer them :)\n")
+            print("\nYou can type 'quit' to exit the conversation. Enter your queries and I'll answer them :)")
 
             response = Conversation(document.text)
 
             while True:
-                prompt = input("\033[94mYou:\033[0m ")
+                prompt = input("\n\033[94mYou:\033[0m ")
 
-                if prompt == "quit": break
+                if prompt == "quit":
+                    del response
+                    break
 
-                print("\n\033[92mPaperPal:\033[0m", response.converse(prompt))
+                print("\n\033[92mPaperPal:\033[0m", fill(response.converse(prompt), width=(get_terminal_size().columns - 10)))
             
 
         print("\n\033[92mPaperPal:\033[0m Bye, Have a good day!")
@@ -41,5 +47,8 @@ class PaperPal:
         
 
 if __name__ == "__main__":
-    app = PaperPal()
-    app.run()
+    try:
+        app = PaperPal()
+        app.run()
+    except KeyboardInterrupt:
+        print("\n\033[92mPaperPal:\033[0m Bye, Have a good day!")

@@ -16,8 +16,6 @@ class DocParser:
                 output = ""
                 for page in doc:
                     output += page.get_text()
-            
-            #print("\nFile ka maal: ", output, "\n\n")
             return output
         
         if self.path.endswith(".docx"):
