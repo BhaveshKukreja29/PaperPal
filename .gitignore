@@ -1,1 +1,13 @@
-__pycache__/
+__pycache__/ 
+.env  
+config.json  
+
+*.pyc  
+*.pyo  
+*.pyd  
+ 
+*.exe  
+*.out  
+*.bin  
+
+~/.paperpal/  
