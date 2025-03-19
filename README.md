@@ -1,9 +1,9 @@
 # PaperPal
 
-PaperPal is a command-line research paper reading assistant designed to help users extract and analyze content from academic documents. It supports various file formats, including PDFs, DOCX, TXT, and images, making research more efficient and accessible.
+PaperPal is a command-line research paper reading assistant designed to help users extract and analyze content from academic documents. It supports various file formats, including PDFs, DOCX, and TXT, making research more efficient and accessible.
 
 ## Features
-- **Multi-format support**: Extracts text from PDF, DOCX, TXT, and image files.
+- **Multi-format support**: Extracts text from PDF, DOCX, and TXT files.
 - **Quick text extraction**: Retrieves readable text efficiently.
 - **Error handling**: Identifies invalid file paths and permission issues.
 
